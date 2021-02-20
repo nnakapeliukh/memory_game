@@ -1,4 +1,29 @@
 .card {
   display: inline;
+  margin: 0 auto;
+  padding: 20px;
+  width: 223px;
+  height: 310px;
+}
+.card-placeholder {
+  display: inline-block;
   margin: 20px;
+  width: 223px;
+  height: 310px;
+  background-color: black;
+  color: white;
+}
+
+.card-deck {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.card-deck-placeholder {
+  position: relative;
+  top: auto;
+  left: 20%;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
 }

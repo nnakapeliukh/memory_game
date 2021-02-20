@@ -1,0 +1,12 @@
+.highscore-div {
+  position: relative;
+  top: auto;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  color: white;
+}
+.highscore-div p {
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}

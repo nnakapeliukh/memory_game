@@ -1,0 +1,17 @@
+.background-credits {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: white;
+}
+a:link {
+  color: #ccc;
+}
+/* visited link */
+a:visited {
+  color: #095484;
+}
+/* mouse over link */
+a:hover {
+  color: #8ebf42;
+}

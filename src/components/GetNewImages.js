@@ -3,7 +3,11 @@ import mtgsdk from "mtgsdk";
 const mtg = mtgsdk;
 
 const GetNewImages = async (difficulty) => {
-  let getNewCard = await mtg.card.where({ supertypes: "legendary" });
+  let getNewCard = await mtg.card.where({
+    supertypes: "basic",
+    types: "land",
+  });
+  console.log(getNewCard);
   let cardIds = [];
   let tempId = 0;
   //pick random card
@@ -14,11 +18,14 @@ const GetNewImages = async (difficulty) => {
     } while (!(CheckIsUnique(cardIds, tempId) && getNewCard[tempId].imageUrl));
     cardIds.push(tempId);
   }
+  console.log(cardIds);
+
   //update state with new URLs
   let tempDeckImageUrls = [];
   for (let i = 0; i < cardIds.length; i++) {
     tempDeckImageUrls.push(getNewCard[cardIds[i]].imageUrl);
   }
+  // console.log(tempDeckImageUrls);
   return new Promise((resolve, reject) => {
     resolve(tempDeckImageUrls);
   });

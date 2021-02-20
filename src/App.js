@@ -4,7 +4,7 @@ import CardDeck from "./components/CardDeck.js";
 
 const App = () => {
   return (
-    <div>
+    <div className="almost-main-div">
       <CardDeck />
     </div>
   );

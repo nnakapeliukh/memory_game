@@ -1,20 +1,44 @@
-.card {
-  display: inline;
+.card-wrapper {
+  display: inline-block;
   margin: 0 auto;
-  padding: 20px;
-  width: 223px;
-  height: 310px;
+}
+.card {
+  display: inline-block;
+  margin: 0 auto;
+  width: 253px;
+  height: 341px;
+  margin: 20px;
+  animation-name: animate-on-load;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+.card:hover {
+  transition-duration: 0.2s;
+  transform: scale(1.1);
+}
+@keyframes animate-on-load {
+  0% {
+    transform: translate3d(-500px, -500px, -500px);
+  }
+  100% {
+    transform: translate3d(-0px, 0px, -0px);
+  }
 }
 .card-placeholder {
+  position: relative;
   display: inline-block;
   margin: 20px;
   width: 223px;
-  height: 310px;
-  background-color: black;
+  height: 311px;
+  background-color: rgba(255, 255, 255, 0.246);
   color: white;
+  border-radius: 10px;
 }
 
 .card-deck {
+  position: relative;
+  top: auto;
   width: 80%;
   text-align: center;
   margin: 0 auto;
@@ -26,4 +50,48 @@
   width: 80%;
   text-align: center;
   margin: 0 auto;
+}
+
+.animated-preload-1 {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  background-color: rgba(255, 255, 255, 0.548);
+  margin: 0 auto;
+  border-radius: 35px;
+  animation-name: loading;
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+
+  animation-iteration-count: infinite;
+}
+
+.animated-preload-2 {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  background-color: rgba(0, 0, 0, 0.589);
+  margin: 0 auto;
+  border-radius: 35px;
+  animation-name: loading;
+  animation-duration: 1.5s;
+  animation-delay: 0.75s;
+
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }

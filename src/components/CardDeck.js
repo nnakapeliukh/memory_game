@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import Card from "./Card.js";
 import { GetNewImages, CheckIsUnique } from "./GetNewImages.js";
 import HighScoreBoard from "./HighScoreBoard.js";
+import Header from "./Header.js";
 
 const CardDeck = (props) => {
   const [deckImageUrls, setDeckImageUrls] = useState([]);
   const [alreadyClicked, setAlreadyClicked] = useState([]);
   const [isGetImage, setIsGetImage] = useState(true);
   const [isShuffleImage, setIsShuffleImage] = useState(false);
-  const minDifficulty = 2;
-  const [difficulty, setDifficulty] = useState(13); //(minDifficulty);
+  const minDifficulty = 4;
+  const [difficulty, setDifficulty] = useState(minDifficulty); //(minDifficulty);
 
   useEffect(() => {
     if (isGetImage === true) {
-      setDeckImageUrls(new Array(difficulty).fill(false));
+      setDeckImageUrls(new Array(difficulty).fill(undefined));
       GetNewImages(difficulty).then((urls) => {
         setDeckImageUrls(urls);
       });
@@ -23,13 +24,22 @@ const CardDeck = (props) => {
   }, [isGetImage]);
 
   const shuffleDeck = () => {
-    let tempDeckImageUrls = deckImageUrls.sort((a, b) => {
-      return 0.4 - Math.random();
-    });
-    tempDeckImageUrls = deckImageUrls.sort((a, b) => {
-      return 0.6 - Math.random();
-    });
-    setDeckImageUrls(tempDeckImageUrls);
+    // let tempDeckImageUrls = deckImageUrls.sort((a, b) => {
+    //   return 0.4 - Math.random();
+    // });
+    // tempDeckImageUrls = deckImageUrls.sort((a, b) => {
+    //   return 0.6 - Math.random();
+    // });
+    function shuffle(items) {
+      for (var i = items.length; i-- > 1; ) {
+        var j = Math.floor(Math.random() * i);
+        var tmp = items[i];
+        items[i] = items[j];
+        items[j] = tmp;
+      }
+      return items;
+    }
+    setDeckImageUrls(shuffle(deckImageUrls));
   };
 
   useEffect(() => {
@@ -79,7 +89,8 @@ const CardDeck = (props) => {
   }, [score]);
 
   return (
-    <div>
+    <div className="game-div">
+      <Header />
       <HighScoreBoard
         score={score}
         highScore={highScore}
@@ -91,9 +102,8 @@ const CardDeck = (props) => {
             <Card
               imageUrl={cardUrl}
               key={index}
-              id={index}
               handleClick={handleClick}
-              numOfCards={difficulty}
+              loadingNew={isGetImage}
             />
           );
         })}

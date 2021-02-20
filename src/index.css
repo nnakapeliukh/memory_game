@@ -1,0 +1,17 @@
+body {
+  background-image: url(./img/ryan-quintal-Vp8RnXSnJ6I-unsplash.jpg);
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  background-size: cover;
+  width: 99vh;
+  height: 100vh;
+  margin: 0;
+}
+#root {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* margin: auto; */
+  width: 100%;
+  height: 100%;
+}

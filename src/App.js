@@ -1,13 +1,12 @@
-import "./App.css";
-import { useEffect, useState } from "react";
+import './App.css';
 import CardDeck from "./components/CardDeck.js";
 
-const App = () => {
+function App() {
   return (
     <div className="almost-main-div">
       <CardDeck />
     </div>
   );
-};
+}
 
 export default App;

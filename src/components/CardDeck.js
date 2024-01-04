@@ -9,7 +9,7 @@ const CardDeck = (props) => {
   const [alreadyClicked, setAlreadyClicked] = useState([]);
   const [isGetImage, setIsGetImage] = useState(true);
   const [isShuffleImage, setIsShuffleImage] = useState(false);
-  const minDifficulty = 4;
+  const minDifficulty = 3;
   const [difficulty, setDifficulty] = useState(minDifficulty); //(minDifficulty);
 
   useEffect(() => {
@@ -24,12 +24,6 @@ const CardDeck = (props) => {
   }, [isGetImage]);
 
   const shuffleDeck = () => {
-    // let tempDeckImageUrls = deckImageUrls.sort((a, b) => {
-    //   return 0.4 - Math.random();
-    // });
-    // tempDeckImageUrls = deckImageUrls.sort((a, b) => {
-    //   return 0.6 - Math.random();
-    // });
     function shuffle(items) {
       for (var i = items.length; i-- > 1; ) {
         var j = Math.floor(Math.random() * i);
